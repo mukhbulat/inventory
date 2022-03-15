@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Inventory.Model
 {
     [CreateAssetMenu()]
-    public class Item : ScriptableObject
+    public class ItemModel : ScriptableObject
     {
         public string itemName;
         public string description;

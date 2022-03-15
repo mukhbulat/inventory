@@ -35,10 +35,14 @@ namespace Inventory.View
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, _itemMask))
             {
-                var item = hit.collider.GetComponent<Item>();
-                if (item != null)
+                // Checking for null item in controller. AddItem returns if item has been added to inventory.
+                if (!_inventoryController.AddItemToInventory(hit.collider.GetComponent<ItemView>()))
                 {
-                    _inventoryController.AddItemToInventory(item);
+                    Debug.Log("Would be great to have UI. Item is not added to inventory.");
+                }
+                else
+                {
+                    Destroy(hit.transform);
                 }
             }
         }
