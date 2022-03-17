@@ -20,6 +20,7 @@ namespace Inventory.Components
             if (item == null) return false;
             if (_inventory.Count >= maxCapacity) return false;
             _inventory.Add(item);
+            Debug.Log($"Added item to inventory {item}, inventory is {_inventory.Count} size");
             return true;
         }
 
